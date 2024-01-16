@@ -136,7 +136,7 @@ int main(int argc, char* argv[]) {
 
     // Main game loop, this constantly runs and keeps everything updated
     while (true) {
-        float newTime = SDL_GetTicks() / 200; // This value (200) is the speed at which the blocks are updated
+        float newTime = SDL_GetTicks() / 150; // This value (150) is the speed at which the blocks are updated
         float delta = newTime - time;
         time = newTime;
 
