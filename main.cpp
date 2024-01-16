@@ -8,9 +8,9 @@
 #undef main
 
 using namespace std;
-
+// SNAKE COLOR
 void renderPlayer(SDL_Renderer* renderer, SDL_Rect player, int x, int y, int scale, vector<int> tailX, vector<int> tailY, int tailLength) {
-    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+    SDL_SetRenderDrawColor(renderer,  255,0,0,255);//[red=255,0,0,255] green=[0,255,0,255]
     player.w = scale;
     player.h = scale;
 
@@ -26,17 +26,16 @@ void renderPlayer(SDL_Renderer* renderer, SDL_Rect player, int x, int y, int sca
 
     SDL_RenderFillRect(renderer, &player);
 }
-
+// FOOD COLOR
 void renderFood(SDL_Renderer* renderer, SDL_Rect food) {
     SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
     SDL_RenderFillRect(renderer, &food);
 }
 
-void renderScore(SDL_Renderer* renderer, int tailLength, int scale, int wScale) {
-    // Dummy function since SDL_ttf is not included
-    // You can replace this function with your custom rendering logic if needed
-}
+void renderScore(SDL_Renderer* renderer, int tailLength, int scale, int wScale) 
+{
 
+}
 bool checkCollision(int foodx, int foody, int playerx, int playery) {
     return (playerx == foodx && playery == foody);
 }
@@ -70,13 +69,11 @@ pair<int, int> getFoodSpawn(vector<int> tailX, vector<int> tailY, int playerX, i
 }
 
 void gameOver(SDL_Renderer* renderer, SDL_Event event, int scale, int wScale, int tailLength) {
-    // Dummy function since SDL_ttf is not included
-    // You can replace this function with your custom rendering logic if needed
+   
 }
 
 void youWin(SDL_Renderer* renderer, SDL_Event event, int scale, int wScale, int tailLength) {
-    // Dummy function since SDL_ttf is not included
-    // You can replace this function with your custom rendering logic if needed
+   
 }
 
 int main(int argc, char* argv[]) {
@@ -139,7 +136,7 @@ int main(int argc, char* argv[]) {
 
     // Main game loop, this constantly runs and keeps everything updated
     while (true) {
-        float newTime = SDL_GetTicks() / 150; // This value (150) is the speed at which the blocks are updated
+        float newTime = SDL_GetTicks() / 200; // This value (200) is the speed at which the blocks are updated
         float delta = newTime - time;
         time = newTime;
 
@@ -331,7 +328,7 @@ int main(int argc, char* argv[]) {
 
         // Choose a color and fill the entire window with it, this resets everything before the next frame
         // This also gives us the background color
-        SDL_SetRenderDrawColor(renderer, 105, 105, 105, 255);
+        SDL_SetRenderDrawColor(renderer,255,255,255,255);
         SDL_RenderClear(renderer);
     }
 
